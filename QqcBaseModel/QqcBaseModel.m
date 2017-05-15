@@ -91,7 +91,10 @@ static NSMutableDictionary *ivarDictionay = nil;
         return [self instanceWithDictionary:jsonData];
     }else if ([jsonData isKindOfClass:[NSString class]]){
         
-        return [self instanceWithJSON:[((NSString*)jsonData) qwt_JSONObject]];
+        if ([jsonData respondsToSelector:@selector(qwt_JSONObject)]) {
+            
+            return [self instanceWithJSON:[jsonData performSelector:@selector(qwt_JSONObject)]];
+        }
     }
     
     return nil;

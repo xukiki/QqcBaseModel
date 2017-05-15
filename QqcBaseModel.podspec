@@ -12,5 +12,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/xukiki/QqcBaseModel.git", :tag => "#{s.version}" }
   
   s.source_files  = ["QqcBaseModel/*.{h,m}"]
+  s.dependency "Json-Qqc"
 
 end
